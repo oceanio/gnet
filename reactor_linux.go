@@ -69,7 +69,7 @@ func (svr *server) activateSubReactor(el *eventloop, lockOSThread bool) {
 			// Re-ordering can easily introduce bugs and bad side-effects, as I found out painfully in the past.
 			case false:
 				if ev&netpoll.OutEvents != 0 {
-					return el.loopWrite(c)
+					el.loopWrite(c)
 				}
 				return nil
 			case true:
